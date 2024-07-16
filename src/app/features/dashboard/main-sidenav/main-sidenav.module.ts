@@ -7,6 +7,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { StudentsModule } from '../students/students.module';
+import {MatListModule} from '@angular/material/list';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { StudentsModule } from '../students/students.module';
     StudentsModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    SharedModule
   ]
 })
 export class MainSidenavModule { }

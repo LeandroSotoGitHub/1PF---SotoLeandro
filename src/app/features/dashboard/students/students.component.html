@@ -1,1 +1,4 @@
-<app-students-list />
+<app-students-abm (studentsListChanged)="updateStudentsList($event)" />
+<app-students-list 
+[studentsList]="studentsList"
+(deleteStudent)="deleteStudent($event)"> />

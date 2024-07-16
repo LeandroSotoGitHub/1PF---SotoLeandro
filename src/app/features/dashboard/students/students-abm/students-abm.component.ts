@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentDialogComponent } from '../components/student-dialog/student-dialog.component';
+import { Students } from '../models';
 
 @Component({
   selector: 'app-students-abm',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrl: './students-abm.component.css'
 })
 export class StudentsAbmComponent {
+  studentsList: Students[] = []
+  constructor (private matDialog: MatDialog){}
 
+  openDialog(): void{
+    const dialogRef = this.matDialog.open(StudentDialogComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.studentsList.push(result);
+      }
+    })
+  }
+
+
+
+  @Output() studentsListChanged = new EventEmitter<Students[]>()
 }

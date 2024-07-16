@@ -7,7 +7,6 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrl: './main-sidenav.component.css'
 })
 export class MainSidenavComponent {
-  showFiller = false;
   @ViewChild('drawer') drawer!: MatDrawer;
 
   toggleDrawer() {
