@@ -9,6 +9,8 @@ import { Students } from '../models';
   styleUrl: './students-abm.component.css'
 })
 export class StudentsAbmComponent {
+  @Output() studentsListChanged = new EventEmitter<Students[]>()
+
   studentsList: Students[] = []
   constructor (private matDialog: MatDialog){}
 
@@ -16,12 +18,10 @@ export class StudentsAbmComponent {
     const dialogRef = this.matDialog.open(StudentDialogComponent)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.studentsList.push(result);
+        this.studentsList.push(result)
+        this.studentsListChanged.emit(this.studentsList)
       }
     })
   }
 
-
-
-  @Output() studentsListChanged = new EventEmitter<Students[]>()
 }
